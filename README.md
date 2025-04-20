@@ -1,4 +1,4 @@
-# Welcome to my HeadSec Web App.
+# HeadSec Web App.
 
 A cyber blog & news application using the Astro Spectre theme. 
 
