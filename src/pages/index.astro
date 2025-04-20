@@ -74,7 +74,7 @@ const { Content: About } = await render(about!);
 			</div>
 			<div class="content-container">
 				{posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()).slice(0, 2).map((post) => (
-					<a href={`/blog/${post.id}`} class="post-container">
+					<a href={`/headsec/blog/${post.id}`} class="post-container">
 						<div class="post-header">
 							<h3>{post.data.title}</h3>
 							<span class="post-date">{post.data.createdAt.toLocaleDateString()}</span>
@@ -91,7 +91,7 @@ const { Content: About } = await render(about!);
 			</div>
 			<div class="content-container">
 				{news.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2).map((news) => (
-					<a href={`/news/${news.id}`} class="post-container">
+					<a href={`/headsec/news/${news.id}`} class="post-container">
 						<div class="post-header">
 							<h3>{news.data.title}</h3>
 							<span class="post-date">{news.data.date.toLocaleDateString()}</span>
