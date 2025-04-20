@@ -13,7 +13,7 @@ export default defineConfig({
     enabled: false
   },
   site: 'https://n1ghtx0w1.github.io/headsec/',
-  base: 'my-repo',
+  output: 'static',
   integrations: [
     expressiveCode({
       themes: ['github-dark-default'],
