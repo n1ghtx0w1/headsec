@@ -41,7 +41,7 @@ const tags = posts.flatMap((post) => post.data.tags.map((tag) => tag.id));
 			</div>
 			<div class="content-container">
 				{posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()).map((post) => (
-					<a href={`/blog/${post.id}`} class="post-container" data-tags={post.data.tags.map((tag) => tag.id).join(",")}>
+					<a href={`/headsec/blog/${post.id}`} class="post-container" data-tags={post.data.tags.map((tag) => tag.id).join(",")}>
 						<div class="post-header">
 							<h3>{post.data.title}</h3>
 							<span class="post-date">{post.data.createdAt.toLocaleDateString()}</span>
@@ -67,9 +67,9 @@ const tags = posts.flatMap((post) => post.data.tags.map((tag) => tag.id));
     }
 
     if (active) {
-      tag.href = `/blog?tags=${currentTags?.filter((t) => t !== tag.dataset.tag).join(',')}`;
+      tag.href = `/headsec/blog?tags=${currentTags?.filter((t) => t !== tag.dataset.tag).join(',')}`;
     } else {
-      tag.href = `/blog?tags=${currentTags ? [...currentTags, tag.dataset.tag].join(',') : tag.dataset.tag}`;
+      tag.href = `/headsec/blog?tags=${currentTags ? [...currentTags, tag.dataset.tag].join(',') : tag.dataset.tag}`;
     }
   });
 
