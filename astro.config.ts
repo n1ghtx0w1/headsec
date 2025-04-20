@@ -14,6 +14,7 @@ export default defineConfig({
   },
   site: 'https://n1ghtx0w1.github.io/headsec/',
   output: 'static',
+  base: '/headsec/', 
   integrations: [
     expressiveCode({
       themes: ['github-dark-default'],
