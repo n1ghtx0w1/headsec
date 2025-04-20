@@ -16,4 +16,4 @@ More details about the Spectre theme for Astro below (all credit to them for the
 
 Spectre is a terminal-inspired theme for Astro, built using TypeScript and Astro.
 
-If you want to know more, head over to the [Github](https://github.com/louisescher/spectre/
+If you want to know more, head over to the [Github](https://github.com/louisescher/spectre/)
