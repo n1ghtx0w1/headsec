@@ -4,7 +4,7 @@ import type { icons as lucideIcons } from '@iconify-json/lucide/icons.json';
 import type { icons as simpleIcons } from '@iconify-json/simple-icons/icons.json';
 
 const other = defineCollection({
-  loader: glob({ base: "src/content/other", pattern: "**/*.{md,mdx}" }),
+  loader: glob({ base: "/headsecsrc/content/other", pattern: "**/*.{md,mdx}" }),
 });
 
 const lucideIconSchema = z.object({
@@ -18,7 +18,7 @@ const simpleIconSchema = z.object({
 });
 
 const quickInfo = defineCollection({
-  loader: file("src/content/info.json"),
+  loader: file("/headsec/src/content/info.json"),
   schema: z.object({
     id: z.number(),
     icon: z.union([lucideIconSchema, simpleIconSchema]),
@@ -27,7 +27,7 @@ const quickInfo = defineCollection({
 });
 
 const socials = defineCollection({
-  loader: file("src/content/socials.json"),
+  loader: file("/headsec/src/content/socials.json"),
   schema: z.object({
     id: z.number(),
     icon: z.union([lucideIconSchema, simpleIconSchema]),
@@ -37,7 +37,7 @@ const socials = defineCollection({
 });
 
 const workExperience = defineCollection({
-  loader: file("src/content/work.json"),
+  loader: file("/headsec/src/content/work.json"),
   schema: z.object({
     id: z.number(),
     title: z.string(),
@@ -48,14 +48,14 @@ const workExperience = defineCollection({
 });
 
 const tags = defineCollection({
-  loader: file("src/content/tags.json"),
+  loader: file("/headsec/src/content/tags.json"),
   schema: z.object({
     id: z.string()
   })
 });
 
 const posts = defineCollection({
-  loader: glob({ base: "src/content/posts", pattern: "**/*.{md,mdx}" }),
+  loader: glob({ base: "/headsec/src/content/posts", pattern: "**/*.{md,mdx}" }),
   schema: ({ image }) => z.object({
     title: z.string(),
     createdAt: z.coerce.date(),
@@ -70,7 +70,7 @@ const posts = defineCollection({
 });
 
 const news = defineCollection({
-  loader: glob({ base: "src/content/news", pattern: "**/*.{md,mdx}" }),
+  loader: glob({ base: "/headsec/src/content/news", pattern: "**/*.{md,mdx}" }),
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
