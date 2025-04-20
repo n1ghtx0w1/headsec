@@ -12,6 +12,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
+  outDir: 'docs',
   site: 'https://n1ghtx0w1.github.io/headsec/',
   output: 'static',
   base: '/headsec/', 
