@@ -2,11 +2,11 @@
 
 A cyber blog & news application using the Astro Spectre theme. [HeadSec App Demo](https://n1ghtx0w1.github.io/headsec/)
 
-![Headsec](/img/headsec.png)
+![Headsec](/headsec/img/headsec.png)
 
 <br />
 
-![Headsec Blog](/img/headsec-blog.png)
+![Headsec Blog](/headsec/img/headsec-blog.png)
 
 ## Modifications
 
