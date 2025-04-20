@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "icon": {
+      "type": "lucide",
+      "name": "mail"
+    },
+    "text": "Email",
+    "link": "mailto:headsec.tech@gmail.com"
+  },
+  {
+    "id": 2,
+    "icon": {
+      "type": "lucide",
+      "name": "shield"
+    },
+    "text": "TryHackMe",
+    "link": "https://tryhackme.com/p/Attacktheosi"
+  },
+  {
+    "id": 3,
+    "icon": {
+      "type": "lucide",
+      "name": "swords"
+    },
+    "text": "HackTheBox",
+    "link": "https://ctf.hackthebox.com/user/profile/560717"
+  }
+]
