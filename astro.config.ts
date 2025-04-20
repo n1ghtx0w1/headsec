@@ -3,7 +3,7 @@ import expressiveCode from 'astro-expressive-code';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import spectre from './package/src';
-// import node from '@astrojs/node';
+import node from '@astrojs/node';
 
 // import { spectreDark } from './src/ec-theme';
 
@@ -47,8 +47,8 @@ export default defineConfig({
 //        lang: 'en',
 //      }
     })
-  ]// ,
-//  adapter: node({   // Remove When Dploying
-//    mode: 'standalone' // Remove When Deploying
-//  })
+  ] ,
+  adapter: node({   // Remove When Dploying
+    mode: 'standalone' // Remove When Deploying
+  })
 });
