@@ -12,7 +12,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  site: 'https://n1ghtx0w1.github.io/',
+  site: 'https://n1ghtx0w1.github.io',
   base: '/headsec',
   integrations: [
     expressiveCode({
