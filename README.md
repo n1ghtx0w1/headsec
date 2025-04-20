@@ -1,6 +1,6 @@
 # HeadSec Web App
 
-A cyber blog & news application using the Astro Spectre theme. [HeadSec App Demo](https://n1ghtx0w1.github.io/headsec/)
+A cyber blog & news application using the Astro Spectre theme. [HeadSec App Demo](https://www.headsec.blog)
 
 ![Headsec](/public/img//headsec.png)
 

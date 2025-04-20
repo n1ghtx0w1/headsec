@@ -5,14 +5,14 @@ import { name } from 'spectre:globals';
 const path = Astro.url.pathname;
 ---
 <nav>
-  <a class="site-title" href="/headsec">{name}</a>
+  <a class="site-title" href="/">{name}</a>
   <ul>
     <li>
-      <a href="/headsec/blog" class:list={{ active: path === '/headsec/blog' }}>Blog</a>
+      <a href="/blog" class:list={{ active: path === '/blog' }}>Blog</a>
     </li>
     <li class="nav-separator">/</li>
     <li>
-      <a href="/headsec/news" class:list={{ active: path === '/headsec/news' }}>News</a>
+      <a href="/news" class:list={{ active: path === '/news' }}>News</a>
     </li>
     <li class="nav-separator">/</li>
     <li>
@@ -99,7 +99,7 @@ const path = Astro.url.pathname;
     if (e.target.dataset.loaded !== 'true') {
       e.target.dataset.loaded = 'true';
 
-      window.pagefind = await import("/headsec/pagefind/pagefind.js");
+      window.pagefind = await import("/pagefind/pagefind.js");
     }
 
     results.innerHTML = '';
