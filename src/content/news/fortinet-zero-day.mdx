@@ -1,0 +1,101 @@
+---
+title: Threat Actors Selling Fortinet Zero-Day Exploit
+date: 04-20-2025
+description: Claims of threat actor selling unauthenticated remote code execution vulnerability.
+image: ../assets/fortinet-zero-day.png
+info:
+  - text: Source
+    link: https://thehackernews.com/2025/04/fortinet-warns-attackers-retain.html
+    icon:
+      type: lucide
+      name: triangle-alert
+---
+
+## 🔍 Overview
+
+A threat actor has reportedly advertised a zero-day exploit targeting Fortinet's FortiGate firewalls.  
+The exploit allegedly allows remote code execution, unauthorized access, granting full control over vulnerable devices.  
+This development aligns with Fortinet's recent advisory on threat actors maintaining persistent access to FortiOS and FortiProxy devices affected by known vulnerabilities.
+
+---
+
+## 🛠️ Vulnerability Summary
+
+- **CVE ID:** Not assigned yet 
+- **Affected Products:** Fortinet FortiGate Firewalls  
+- **Attack Vector:** Remote (unauthenticated)  
+- **Impact:** Full device compromise, extraction of configuration files, credentials, admin permissions, firewall policies, and two-factor authentication status  
+- **Exploit Availability:** Advertised for sale on a dark web forum
+
+---
+
+## 🧩 Technical Details
+
+The threat actor claims the exploit enables remote code execution without authentication, providing full control over the targeted FortiGate devices.  
+This includes the ability to extract sensitive configuration files and information such as credentials and security policies.  
+The exploit's advertisement surfaced as Fortinet released an advisory about attackers maintaining persistent access to devices by exploiting known vulnerabilities, specifically CVE-2022-42475, CVE-2023-27997, and CVE-2024-21762.  
+Attackers have been creating symbolic links between user and root filesystems to evade detection and maintain access even after patches are applied.
+
+---
+
+## 🧪 Indicators of Compromise (IOCs)
+
+While no specific IOCs have been released for the alleged zero-day exploit, Fortinet has previously disclosed IOCs related to similar remote code execution vulnerabilities:
+
+### 🔐 CVE-2022-42475 – FortiOS SSL-VPN Heap-Based Buffer Overflow
+
+**Artifacts & Files:**
+- `/data/lib/libips.bak`
+- `/data/lib/libgif.so`
+- `/data/lib/libiptcp.so`
+- `/data/lib/libipudp.so`
+- `/var/.sslvpnconfigbk`
+- `/data/etc/wxd.conf`
+
+**Suspicious IP Addresses:**
+- `188.34.130.40:444`
+- `103.131.189.143:30080-30443`
+- `193.36.119.61:8443, 444`
+- `172.247.168.153:8033`
+- Others listed in Fortinet’s official advisory
+
+**Associated Malware:**
+- `BoldMove` – A custom backdoor developed for FortiGate firewalls
+
+**Log Clues:**
+- Crashes in `sslvpnd` with `Signal 11`
+
+---
+
+### 🔐 CVE-2023-27997 – FortiOS SSL-VPN Heap Overflow ("XORtigate")
+
+**Indicators:**
+- Unexpected `local-out` traffic
+- Unknown or unauthorized processes
+- Unusual outbound network connections
+
+---
+
+### 🔐 CVE-2024-21762 – FortiOS SSL-VPN Out-of-Bounds Write
+
+**Indicators:**
+- Suspicious or unauthorized file presence
+- Anomalous processes (e.g., unexpected Node.js activity)
+- Connections to known malicious infrastructure
+
+---
+
+## 🧱 Mitigation Guidance
+
+Fortinet recommends the following actions to mitigate risks associated with the exploitation of known vulnerabilities:
+
+- Update FortiOS to versions 7.6.2, 7.4.7, 7.2.11, 7.0.17, or 6.4.16, which include fixes for the symbolic link issue.
+- Apply the latest AV/IPS signatures provided by Fortinet.
+- Audit SSL-VPN configurations and monitor for unauthorized symbolic links or unusual access patterns.
+- Implement strict access controls and monitor administrative account activities.
+
+As the alleged zero-day exploit has not been officially confirmed or assigned a CVE ID, organizations should remain vigilant and monitor Fortinet's advisories for updates.
+
+---
+
+> For more details organizations should consult [Fortinet’s PSIRT](https://www.fortiguard.com/psirt) portal.
