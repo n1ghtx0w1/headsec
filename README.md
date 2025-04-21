@@ -1,6 +1,6 @@
 # HeadSec Web App
 
-A cyber blog & news application using the Astro Spectre theme. [HeadSec App Demo](https://www.headsec.blog)
+A cyber blog application using the Astro Spectre theme. [HeadSec App Demo](https://www.headsec.blog)
 
 ![Headsec](/public/img//headsec.png)
 
@@ -10,7 +10,7 @@ A cyber blog & news application using the Astro Spectre theme. [HeadSec App Demo
 
 ## Modifications
 
-- Changed "Projects" to "News"
+- Removed Projects
 - Removed "Work History"
 - Changed main color from purple to green
 - Changed profile image

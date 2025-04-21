@@ -12,9 +12,8 @@ import { getEntry } from 'astro:content';
 import { render } from 'astro:content';
 import { name, openGraph } from 'spectre:globals';
 
-const [posts, news, about, workExperience, quickInfo, socials] = await Promise.all([
+const [posts, about, workExperience, quickInfo, socials] = await Promise.all([
 	getCollection('posts', (post) => post.data.draft !== true),
-	getCollection('news'),
 	getEntry('other', 'about'),
 	getCollection('workExperience'),
 	getCollection('quickInfo'),
@@ -84,23 +83,5 @@ const { Content: About } = await render(about!);
 				))}
 			</div>
 		</Card>
-		<Card>
-			<div class="header-container">
-				<Icon type='lucide' name="newspaper" width={24} height={24} class='glow-icon' />
-				<h2>Latest News</h2>
-			</div>
-			<div class="content-container">
-				{news.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2).map((news) => (
-					<a href={`/news/${news.id}`} class="post-container">
-						<div class="post-header">
-							<h3>{news.data.title}</h3>
-							<span class="post-date">{news.data.date.toLocaleDateString()}</span>
-						</div>
-						<span>{news.data.description}</span>
-					</a>
-				))}
-			</div>
-		</Card>
-
 	</div>
 </Layout>
