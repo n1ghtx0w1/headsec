@@ -30,7 +30,7 @@ export default defineConfig({
           description: 'Words that are on my mind.'
         },
         news: {
-          title: 'Cyber News'
+          title: ''
         }
       },
 //      giscus: {
