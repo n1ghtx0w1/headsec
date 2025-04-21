@@ -7,44 +7,36 @@ import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import { openGraph } from 'spectre:globals';
 
-const posts = await getCollection('posts', (post) => post.data.draft !== true);
-const tags = posts.flatMap((post) => post.data.tags.map((tag) => tag.id));
+const news = await getCollection('news');
 ---
 <Layout
-  title={openGraph.news.title || "News"}
-  description={openGraph.news.description}
+	title={openGraph.news.title || "News"}
+	description={openGraph.news.description}
 	pagefindIgnore
 >
   <div class="layout-grid-left" slot="left">
     <Card class="flex-col-card">
-      <h2 class="no-mt">Filter</h2>
-      <ul class="tags-list">
-        {Array.from(new Set(tags)).map((tag) => (
-          <li>
-            <a
-              class="news-tag"
-              href="/news"
-              data-tag={tag}
-            >
-              {tag}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <h2 class="no-mt">Stats</h2>
+			<div class="stats-div">
+				<div class="stat">
+					<h3 class="text-glow">{news.length}</h3>
+					<span>News{news.length > 1 ? 's' : ''}</span>
+				</div>
+			</div>
     </Card>
   </div>
   <div class="layout-grid-right" slot="right">
 		<Card>
 			<div class="header-container">
-				<Icon type="lucide" name="rss" width={24} height={24} class='glow-icon' />
+				<Icon type='lucide' name="folder-git" width={24} height={24} class='glow-icon' />
 				<h2>Latest News</h2>
 			</div>
 			<div class="content-container">
-				{posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()).map((post) => (
-					<a href={`/news/${post.id}`} class="post-container" data-tags={post.data.tags.map((tag) => tag.id).join(",")}>
+				{news.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).map((post) => (
+					<a href={`/news/${post.id}`} class="post-container">
 						<div class="post-header">
 							<h3>{post.data.title}</h3>
-							<span class="post-date">{post.data.createdAt.toLocaleDateString()}</span>
+							<span class="post-date">{post.data.date.toLocaleDateString()}</span>
 						</div>
 						<span>{post.data.description}</span>
 					</a>
@@ -53,30 +45,21 @@ const tags = posts.flatMap((post) => post.data.tags.map((tag) => tag.id));
 		</Card>
   </div>
 </Layout>
-<script>
-  const tags = document.querySelectorAll<HTMLAnchorElement>('.news-tag');
-  const url = new URL(window.location.href);
-  const currentTags = url.searchParams.get('tags')?.split(',').filter((tag) => tag.length > 0);
-  const posts = document.querySelectorAll<HTMLAnchorElement>('.post-container');
+<style>
+	.stats-div {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
 
-  tags.forEach((tag) => {
-    let active = false;
-    if (currentTags?.includes(tag.dataset.tag!)) {
-      tag.classList.add('active');
-      active = true;
-    }
+	.stat {
+		display: flex;
+		flex-direction: column;
+	}
 
-    if (active) {
-      tag.href = `/news?tags=${currentTags?.filter((t) => t !== tag.dataset.tag).join(',')}`;
-    } else {
-      tag.href = `/news?tags=${currentTags ? [...currentTags, tag.dataset.tag].join(',') : tag.dataset.tag}`;
-    }
-  });
-
-  posts.forEach((post) => {
-    const postTags = post.dataset.tags!.split(',');
-    if (currentTags && currentTags.length > 0 && !currentTags.every((tag) => postTags.includes(tag))) {
-      post.style.display = 'none';
-    }
-  });
-</script>
+	.stat h3 {
+		font-size: 2em;
+		margin: 0;
+		margin-bottom: .5rem;
+	}
+</style>
